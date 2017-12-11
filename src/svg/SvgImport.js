@@ -571,11 +571,15 @@ new function() {
             body = document.body,
             container,
             parent,
-            next;
+            next,
+            view = paper.getView();
         if (isRoot && isElement) {
-            // Set rootSize to view size, as getSize() may refer to it (#1242).
-            rootSize = paper.getView().getSize();
-            // Now set rootSize to the root element size, and fall-back to view.
+
+            // Set rootSize to view size as getSize() may refer to it (#1242).
+            if (view) {
+                rootSize = view.getSize();
+            }
+            // Now set rootSize to the root element size, and try to fall-back to view.
             rootSize = getSize(node, null, null, true) || rootSize;
             // We need to move the SVG node to the current document, so default
             // styles are correctly inherited! For this we create and insert a
