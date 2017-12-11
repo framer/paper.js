@@ -139,6 +139,7 @@ var View = Base.extend(Emitter, /** @lends View# */{
             project._view = null;
         // Uninstall event handlers again for this view.
         DomEvent.remove(this._element, this._viewEvents);
+        DomEvent.remove(document, this._docEvents);
         DomEvent.remove(window, this._windowEvents);
         this._element = this._project = null;
         // Remove all onFrame handlers.
@@ -1309,6 +1310,7 @@ new function() { // Injection scope for event handling on the browser
 
     return {
         _viewEvents: viewEvents,
+        _docEvents: docEvents,
 
         /**
          * Private method to handle mouse events, and delegate to items and
