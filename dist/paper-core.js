@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Tue Dec 12 00:45:17 2017 +0100
+ * Date: Tue Dec 19 23:19:14 2017 +0100
  *
  ***
  *
@@ -11121,6 +11121,7 @@ var Color = Base.extend(new function() {
 					data[1] / 255,
 					data[2] / 255
 				];
+				if (data[3] < 255) cached.push(data[3] / 255);
 			}
 			components = cached.slice();
 		} else {
