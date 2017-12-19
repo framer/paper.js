@@ -100,6 +100,7 @@ var Color = Base.extend(new function() {
                     data[1] / 255,
                     data[2] / 255
                 ];
+                if (data[3] < 255) cached.push(data[3] / 255);
             }
             components = cached.slice();
         } else {
