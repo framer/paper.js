@@ -93,6 +93,7 @@ var Color = Base.extend(new function() {
                 // the canvas with it, then retrieve the data for the drawn
                 // pixel:
                 colorCtx.fillStyle = string;
+                colorCtx.clearRect(0, 0, 1, 1);
                 colorCtx.fillRect(0, 0, 1, 1);
                 var data = colorCtx.getImageData(0, 0, 1, 1).data;
                 cached = colorCache[string] = [

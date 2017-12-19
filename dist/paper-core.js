@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Tue Dec 19 23:19:14 2017 +0100
+ * Date: Tue Dec 19 23:33:30 2017 +0100
  *
  ***
  *
@@ -11114,6 +11114,7 @@ var Color = Base.extend(new function() {
 				}
 				colorCtx.fillStyle = 'rgba(0,0,0,0)';
 				colorCtx.fillStyle = string;
+				colorCtx.clearRect(0, 0, 1, 1);
 				colorCtx.fillRect(0, 0, 1, 1);
 				var data = colorCtx.getImageData(0, 0, 1, 1).data;
 				cached = colorCache[string] = [
