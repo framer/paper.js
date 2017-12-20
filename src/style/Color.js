@@ -85,15 +85,15 @@ var Color = Base.extend(new function() {
                     colorCtx = CanvasProvider.getContext(1, 1);
                     colorCtx.globalCompositeOperation = 'copy';
                 }
-                // Set the current fillStyle to transparent, so that it will be
-                // transparent instead of the previously set color in case the
+                // Set the current fillStyle to black, so that it will be
+                // black instead of the previously set color in case the
                 // new color can not be interpreted.
-                colorCtx.fillStyle = 'rgba(0,0,0,0)';
+                colorCtx.fillStyle = 'black';
+                colorCtx.clearRect(0, 0, 1, 1);
                 // Set the fillStyle of the context to the passed name and fill
                 // the canvas with it, then retrieve the data for the drawn
                 // pixel:
                 colorCtx.fillStyle = string;
-                colorCtx.clearRect(0, 0, 1, 1);
                 colorCtx.fillRect(0, 0, 1, 1);
                 var data = colorCtx.getImageData(0, 0, 1, 1).data;
                 cached = colorCache[string] = [
