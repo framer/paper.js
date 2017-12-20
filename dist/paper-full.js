@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Tue Dec 19 23:33:30 2017 +0100
+ * Date: Wed Dec 20 07:55:54 2017 +0100
  *
  ***
  *
@@ -11112,9 +11112,9 @@ var Color = Base.extend(new function() {
 					colorCtx = CanvasProvider.getContext(1, 1);
 					colorCtx.globalCompositeOperation = 'copy';
 				}
-				colorCtx.fillStyle = 'rgba(0,0,0,0)';
-				colorCtx.fillStyle = string;
+				colorCtx.fillStyle = 'black';
 				colorCtx.clearRect(0, 0, 1, 1);
+				colorCtx.fillStyle = string;
 				colorCtx.fillRect(0, 0, 1, 1);
 				var data = colorCtx.getImageData(0, 0, 1, 1).data;
 				cached = colorCache[string] = [
