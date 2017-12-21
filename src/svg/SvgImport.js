@@ -575,9 +575,12 @@ new function() {
             view = paper.getView();
         if (isRoot && isElement) {
 
-            // Set rootSize to view size as getSize() may refer to it (#1242).
             if (view) {
+                // Set rootSize to view size as getSize() may refer to it (#1242).
                 rootSize = view.getSize();
+            } else {
+                // Make sure there is always a fallback
+                rootSize = {width: 1, height: 1}
             }
             // Now set rootSize to the root element size, and try to fall-back to view.
             rootSize = getSize(node, null, null, true) || rootSize;
