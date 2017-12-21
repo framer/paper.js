@@ -579,8 +579,13 @@ new function() {
                 // Set rootSize to view size as getSize() may refer to it (#1242).
                 rootSize = view.getSize();
             } else {
-                // Make sure there is always a fallback
-                rootSize = {width: 1, height: 1}
+                // Make sure there always is a fallback, but read the size option
+                // if provided
+                var size = options["size"] || {}
+                rootSize = {
+                    width: size["width"] || 1,
+                    height: size["height"] || 1
+                }
             }
             // Now set rootSize to the root element size, and try to fall-back to view.
             rootSize = getSize(node, null, null, true) || rootSize;

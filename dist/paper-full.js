@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Thu Dec 21 13:15:35 2017 +0100
+ * Date: Thu Dec 21 13:44:02 2017 +0100
  *
  ***
  *
@@ -14648,7 +14648,11 @@ new function() {
 			if (view) {
 				rootSize = view.getSize();
 			} else {
-				rootSize = {width: 1, height: 1}
+				var size = options["size"] || {}
+				rootSize = {
+					width: size["width"] || 1,
+					height: size["height"] || 1
+				}
 			}
 			rootSize = getSize(node, null, null, true) || rootSize;
 			container = SvgElement.create('svg', {
